@@ -9,7 +9,7 @@ services:
       - "16379:6379"
     networks:
       sentinel-master:
-        ipv4_address: 173.17.0.3
+        ipv4_address: 173.17.0.2
     volumes:
       - ./data/redis-maser:/data
   slave1:
@@ -24,7 +24,7 @@ services:
       - master
     networks:
       sentinel-master:
-        ipv4_address: 173.17.0.2
+        ipv4_address: 173.17.0.3
   slave2:
     image: redis                ## 镜像
     container_name: redis-slave-2
@@ -37,7 +37,7 @@ services:
       - master
     networks:
       sentinel-master:
-        ipv4_address: 173.17.0.7
+        ipv4_address: 173.17.0.4
   sentinel1:
     image: redis       ## 镜像
     container_name: redis-sentinel-1
@@ -48,7 +48,7 @@ services:
       - ./sentinel/sentinel1.conf:/usr/local/etc/redis/sentinel.conf
     networks:
       sentinel-master:
-        ipv4_address: 173.17.0.4
+        ipv4_address: 173.17.0.5
   sentinel2:
     image: redis                ## 镜像
     container_name: redis-sentinel-2
@@ -59,7 +59,7 @@ services:
       - ./sentinel/sentinel2.conf:/usr/local/etc/redis/sentinel.conf
     networks:
       sentinel-master:
-        ipv4_address: 173.17.0.5
+        ipv4_address: 173.17.0.6
   sentinel3:
     image: redis                ## 镜像
     container_name: redis-sentinel-3
@@ -70,7 +70,7 @@ services:
       - ./sentinel/sentinel3.conf:/usr/local/etc/redis/sentinel.conf
     networks:
       sentinel-master:
-        ipv4_address: 173.17.0.6
+        ipv4_address: 173.17.0.7
 networks:
   sentinel-master:
     driver: bridge
