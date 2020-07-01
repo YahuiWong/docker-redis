@@ -4,7 +4,7 @@ services:
     image: redis       ## 镜像
     container_name: redis-master
 # masterauth  -> 表示和主节点连接时候需要校验的密码
-    command: redis-server --requirepass custom_password  --masterauth custom_password 
+    command: redis-server --requirepass custom_password  --masterauth custom_password --slave-read-only no
     ports:
       - "16379:6379"
     networks:
