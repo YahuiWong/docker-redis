@@ -9,7 +9,7 @@ services:
       - "16379:6379"
     networks:
       sentinel-master:
-        ipv4_address: 173.17.0.1
+        ipv4_address: 173.17.0.3
     volumes:
       - ./data/redis-maser:/data
   slave1:
@@ -37,7 +37,7 @@ services:
       - master
     networks:
       sentinel-master:
-        ipv4_address: 173.17.0.3
+        ipv4_address: 173.17.0.7
   sentinel1:
     image: redis       ## 镜像
     container_name: redis-sentinel-1
